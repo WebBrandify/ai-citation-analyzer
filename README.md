@@ -37,45 +37,66 @@ This research explores:
 ---
 
 ## 🏗️ System Architecture
-┌─────────────────────────────────────────────────────┐
-│         AI Citation Analyzer Pipeline               │
-├─────────────────────────────────────────────────────┤
-│                                                     │
-│  Input: AI-Generated Answer + Citations            │
-│                    │                                │
-│                    ▼                                │
-│         ┌──────────────────────┐                   │
-│         │  Citation Extractor  │                   │
-│         └──────────┬───────────┘                   │
-│                    │                                │
-│                    ▼                                │
-│         ┌──────────────────────┐                   │
-│         │  Source Validator    │                   │
-│         │  - URL accessibility │                   │
-│         │  - Domain credibility│                   │
-│         └──────────┬───────────┘                   │
-│                    │                                │
-│                    ▼                                │
-│         ┌──────────────────────┐                   │
-│         │ Content Verification │                   │
-│         │ - Fact consistency   │                   │
-│         │ - Cross-referencing  │                   │
-│         └──────────┬───────────┘                   │
-│                    │                                │
-│                    ▼                                │
-│         ┌──────────────────────┐                   │
-│         │  Trust Score Engine  │                   │
-│         │  - Credibility score │                   │
-│         │  - Confidence level  │                   │
-│         └──────────┬───────────┘                   │
-│                    │                                │
-│                    ▼                                │
-│  Output: Verified Citations + Trust Indicators     │
-│                                                     │
-└─────────────────────────────────────────────────────┘
 
----
-
+```mermaid
+graph TB
+    subgraph Input
+        A[AI-Generated Answerwith Citations]
+    end
+    
+    subgraph "Citation Processing"
+        B[Citation Extractor]
+        B1[URL Parser]
+        B2[Metadata Extractor]
+        B --> B1
+        B --> B2
+    end
+    
+    subgraph "Source Validation"
+        C[Source Validator]
+        C1[URL Accessibility Check]
+        C2[Domain Credibility Scoring]
+        C3[Publication Reputation]
+        C --> C1
+        C --> C2
+        C --> C3
+    end
+    
+    subgraph "Content Verification"
+        D[Content Verifier]
+        D1[Fact Consistency Check]
+        D2[Cross-Reference Validator]
+        D3[Quote Accuracy Check]
+        D --> D1
+        D --> D2
+        D --> D3
+    end
+    
+    subgraph "Trust Scoring"
+        E[Trust Score Engine]
+        E1[Credibility Score0-100]
+        E2[Confidence LevelHigh/Med/Low]
+        E --> E1
+        E --> E2
+    end
+    
+    subgraph Output
+        F[Verified Citations+ Trust Indicators]
+    end
+    
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,stroke-width:3px,color:#fff
+    style F fill:#50C878,stroke:#2E8B57,stroke-width:3px,color:#fff
+    style B fill:#9B59B6,stroke:#6C3483,stroke-width:2px,color:#fff
+    style C fill:#E67E22,stroke:#A04000,stroke-width:2px,color:#fff
+    style D fill:#E74C3C,stroke:#922B21,stroke-width:2px,color:#fff
+    style E fill:#F39C12,stroke:#9A5F00,stroke-width:2px,color:#fff
+```
 ## 🔬 Research Methodology
 
 ### Phase 1: Citation Extraction & Parsing
