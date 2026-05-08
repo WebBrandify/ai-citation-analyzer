@@ -272,7 +272,7 @@ Through building AI systems for real users, I've seen firsthand how trust issues
 ## 📫 Contact
 
 - **Portfolio:** [webbrandify.com](https://webbrandify.com)
-- **GitHub:** [@your-username](https://github.com/your-username)
+- **GitHub:** (https://github.com/webbrandify)
 - **LinkedIn:** [Rohit Sharma](https://linkedin.com/in/rohit-sharma-webbrandify)
 - **Email:** rohit@webbrandify.com
 
